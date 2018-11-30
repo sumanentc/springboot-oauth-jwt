@@ -11,8 +11,8 @@ JSON Web Token go to []() https://jwt.io/ to decode your generated token and lea
 To run the application </br>
 Use one of the several ways of running a Spring Boot application. Below are just three options:</br>
 
-1. Build using maven goal: mvn clean package and execute the resulting artifact as follows java -jar springboot-jwt-0.0.1-SNAPSHOT.jar or </br>
-2. On Unix/Linux based systems: run mvn clean package then run the resulting jar as any other executable ./springboot-jwt-0.0.1-SNAPSHOT.jar </br>
+1. Build using maven goal: mvn clean package and execute the resulting artifact as follows java -jar springboot-jwt-1.0-SNAPSHOT.jar or </br>
+2. On Unix/Linux based systems: run mvn clean package then run the resulting jar as any other executable ./springboot-jwt-1.0-SNAPSHOT.jar </br>
 
 <b>To test the application </b>
 
