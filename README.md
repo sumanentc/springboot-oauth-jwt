@@ -1,5 +1,5 @@
 # Spring Boot Oauth2 using JWT
-An Example Spring Boot Application for Securing a REST API with JSON Web Token (JWT) and Oauth2. JDbcTokenStore is used to save the token issued to the users</br>
+An Example of Spring Boot Application for Securing a REST API with Oauth2 using JSON Web Token (JWT). JdbcTokenStore is used to save the token issued to the users</br>
 This application can be used as a seed to quick start your spring boot REST API project with a fully functional security module.
 ---------------------
 Main building blocks
