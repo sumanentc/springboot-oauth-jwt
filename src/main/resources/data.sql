@@ -74,6 +74,30 @@ create table oauth_code (
 code VARCHAR(255), authentication bytea
 );
 
+drop table if exists oauth_approvals;
+create table oauth_approvals (
+userId VARCHAR(255),
+clientId VARCHAR(255),
+scope VARCHAR(255),
+status VARCHAR(10),
+expiresAt TIMESTAMP,
+lastModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+drop table if exists ClientDetails;
+create table ClientDetails (
+appId VARCHAR(255) PRIMARY KEY,
+resourceIds VARCHAR(255),
+appSecret VARCHAR(255),
+scope VARCHAR(255),
+grantTypes VARCHAR(255),
+redirectUrl VARCHAR(255),
+authorities VARCHAR(255),
+access_token_validity INTEGER,
+refresh_token_validity INTEGER,
+additionalInformation VARCHAR(4096),
+autoApproveScopes VARCHAR(255)
+);
+
 INSERT INTO app_role (id, role_name, description) VALUES (1, 'STANDARD_USER', 'Standard User - Has no admin rights');
 INSERT INTO app_role (id, role_name, description) VALUES (2, 'ADMIN_USER', 'Admin User - Has permission to perform admin tasks');
 
@@ -101,4 +125,4 @@ INSERT INTO oauth_client_details
    (client_id, client_secret, scope, authorized_grant_types,
    authorities, access_token_validity, refresh_token_validity)
 VALUES
-   ('testjwtclientid', 'XY7kmzoNzl100', 'read,write', 'password,refresh_token,authorization_code', 'ROLE_CLIENT,ROLE_TRUSTED_CLIENT', 900, 2592000);
+   ('testjwtclientid', 'XY7kmzoNzl100', 'read,write', 'password,refresh_token,client_credentials,authorization_code', 'ROLE_CLIENT,ROLE_TRUSTED_CLIENT', 900, 2592000);
