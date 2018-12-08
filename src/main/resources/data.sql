@@ -63,6 +63,9 @@ authentication bytea,
 refresh_token VARCHAR(255)
 );
 
+create index oauth_access_token_id on oauth_access_token(token_id);
+create index oauth_refresh_token_id on oauth_access_token(token_id);
+
 drop table if exists oauth_refresh_token;
 create table oauth_refresh_token (
 token_id VARCHAR(255),
