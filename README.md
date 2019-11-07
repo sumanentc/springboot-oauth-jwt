@@ -1,5 +1,6 @@
 # Spring Boot Oauth2 using JWT
 An Example of Spring Boot Application for Securing a REST API with Oauth2 using JSON Web Token (JWT). JdbcTokenStore is used to save the token issued to the users</br>
+It supports multiple authentication providers LDAP and DB. First will check the DB and if the user doesn't exists in DB then it will check the LDAP which is configured.
 This application can be used as a seed to quick start your spring boot REST API project with a fully functional security module.
 ---------------------
 Main building blocks
@@ -19,8 +20,11 @@ Use one of the several ways of running a Spring Boot application. Below are just
 First you will need the following basic pieces of information:</br>
 - client: testjwtclientid </br>
 - secret: XY7kmzoNzl100 </br>
+- Local DB
 - Non-admin username and password: john.doe and jwtpass
 - Admin user: admin.admin and jwtpass
+- LDAP 
+- username and password: ben and benspassword
 - Example of resource accessible to all authenticated users: [http://localhost:8080/springjwt/cities](http://localhost:8080/springjwt/cities) 
 - Example of resource accessible to only an admin user: [http://localhost:8080/springjwt/users](http://localhost:8080/springjwt/users)
 

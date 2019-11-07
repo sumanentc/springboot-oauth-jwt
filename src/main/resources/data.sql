@@ -104,7 +104,7 @@ autoApproveScopes VARCHAR(255)
 INSERT INTO app_role (id, role_name, description) VALUES (1, 'STANDARD_USER', 'Standard User - Has no admin rights');
 INSERT INTO app_role (id, role_name, description) VALUES (2, 'ADMIN_USER', 'Admin User - Has permission to perform admin tasks');
 
--- USER
+-- USER john.doe
 -- non-encrypted password: jwtpass
 INSERT INTO app_user (id, first_name, last_name, password, username) VALUES (1, 'John', 'Doe', '$2a$10$qtH0F1m488673KwgAfFXEOWxsoZSeHqqlB/8BTt3a6gsI5c2mdlfe', 'john.doe');
 INSERT INTO app_user (id, first_name, last_name, password, username) VALUES (2, 'Admin', 'Admin', '$2a$10$qtH0F1m488673KwgAfFXEOWxsoZSeHqqlB/8BTt3a6gsI5c2mdlfe', 'admin.admin');
@@ -129,3 +129,11 @@ INSERT INTO oauth_client_details
    authorities, access_token_validity, refresh_token_validity)
 VALUES
    ('testjwtclientid', 'XY7kmzoNzl100', 'read,write', 'password,refresh_token,client_credentials,authorization_code', 'ROLE_CLIENT,ROLE_TRUSTED_CLIENT', 900, 2592000);
+INSERT INTO oauth_client_details
+   (client_id, client_secret, scope, authorized_grant_types,
+   authorities, access_token_validity, refresh_token_validity)
+VALUES
+   ('ANDROID_APP', 'VzagO+ufWljKCWHfY1a+0uR8Vek=', 'read,write', 'password,refresh_token,client_credentials,authorization_code', 'ROLE_CLIENT,ROLE_TRUSTED_CLIENT', 6048800, 259200000);
+ALTER TABLE oauth_access_token ADD CONSTRAINT user_client_const UNIQUE (user_name,client_id);
+
+---LDAP username ben Password benspassword
